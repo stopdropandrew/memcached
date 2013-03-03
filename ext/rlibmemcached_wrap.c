@@ -7077,7 +7077,7 @@ _wrap_memcached_increment_with_initial(int argc, VALUE *argv, VALUE self) {
     arg3 = (size_t) RSTRING_LEN(argv[1]);
   }
   {
-    res4 = SWIG_ConvertPtr(argv[2], &argp4, SWIGTYPE_p_uint64_t,  0 );
+    res4 = SWIG_AsVal_unsigned_SS_long_SS_long(argv[2], &argp4);
     if (!SWIG_IsOK(res4)) {
       SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "uint64_t","memcached_increment_with_initial", 4, argv[2] ));
     }
@@ -7088,7 +7088,7 @@ _wrap_memcached_increment_with_initial(int argc, VALUE *argv, VALUE self) {
     }
   }
   {
-    res5 = SWIG_ConvertPtr(argv[3], &argp5, SWIGTYPE_p_uint64_t,  0 );
+    res5 = SWIG_AsVal_unsigned_SS_long_SS_long(argv[3], &argp5);
     if (!SWIG_IsOK(res5)) {
       SWIG_exception_fail(SWIG_ArgError(res5), Ruby_Format_TypeError( "", "uint64_t","memcached_increment_with_initial", 5, argv[3] ));
     }
@@ -7153,7 +7153,7 @@ _wrap_memcached_decrement_with_initial(int argc, VALUE *argv, VALUE self) {
     arg3 = (size_t) RSTRING_LEN(argv[1]);
   }
   {
-    res4 = SWIG_ConvertPtr(argv[2], &argp4, SWIGTYPE_p_uint64_t,  0 );
+    res4 = SWIG_AsVal_unsigned_SS_long_SS_long(argv[2], &argp4);
     if (!SWIG_IsOK(res4)) {
       SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "uint64_t","memcached_decrement_with_initial", 4, argv[2] ));
     }
@@ -7164,7 +7164,7 @@ _wrap_memcached_decrement_with_initial(int argc, VALUE *argv, VALUE self) {
     }
   }
   {
-    res5 = SWIG_ConvertPtr(argv[3], &argp5, SWIGTYPE_p_uint64_t,  0 );
+    res5 = SWIG_AsVal_unsigned_SS_long_SS_long(argv[3], &argp5);
     if (!SWIG_IsOK(res5)) {
       SWIG_exception_fail(SWIG_ArgError(res5), Ruby_Format_TypeError( "", "uint64_t","memcached_decrement_with_initial", 5, argv[3] ));
     }
