@@ -7046,20 +7046,26 @@ _wrap_memcached_increment_with_initial(int argc, VALUE *argv, VALUE self) {
   memcached_st *arg1 = (memcached_st *) 0 ;
   char *arg2 = (char *) 0 ;
   size_t arg3 ;
-  uint32_t arg4 ;
-  uint64_t *arg5 = (uint64_t *) 0 ;
+  uint64_t arg4 ;
+  uint64_t arg5 ;
+  time_t arg6 ;
+  uint64_t *arg7 = (uint64_t *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val4 ;
-  int ecode4 = 0 ;
-  uint64_t temp5 ;
-  int res5 = SWIG_TMPOBJ ;
+  void *argp4 ;
+  int res4 = 0 ;
+  void *argp5 ;
+  int res5 = 0 ;
+  unsigned long val6 ;
+  int ecode6 = 0 ;
+  uint64_t temp7 ;
+  int res7 = SWIG_TMPOBJ ;
   memcached_return result;
   VALUE vresult = Qnil;
 
-  arg5 = &temp5;
-  if ((argc < 3) || (argc > 3)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
+  arg7 = &temp7;
+  if ((argc < 5) || (argc > 5)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 5)",argc); SWIG_fail;
   }
   res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_memcached_st, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
@@ -7070,18 +7076,40 @@ _wrap_memcached_increment_with_initial(int argc, VALUE *argv, VALUE self) {
     arg2 = StringValuePtr(argv[1]);
     arg3 = (size_t) RSTRING_LEN(argv[1]);
   }
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "uint32_t","memcached_increment_with_initial", 4, argv[2] ));
+  {
+    res4 = SWIG_ConvertPtr(argv[2], &argp4, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "uint64_t","memcached_increment_with_initial", 4, argv[2] ));
+    }
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "uint64_t","memcached_increment_with_initial", 4, argv[2]));
+    } else {
+      arg4 = *((uint64_t *)(argp4));
+    }
   }
-  arg4 = (uint32_t)(val4);
-  result = (memcached_return)memcached_increment_with_initial(arg1,(char const *)arg2,arg3,arg4,arg5);
+  {
+    res5 = SWIG_ConvertPtr(argv[3], &argp5, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res5)) {
+      SWIG_exception_fail(SWIG_ArgError(res5), Ruby_Format_TypeError( "", "uint64_t","memcached_increment_with_initial", 5, argv[3] ));
+    }
+    if (!argp5) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "uint64_t","memcached_increment_with_initial", 5, argv[3]));
+    } else {
+      arg5 = *((uint64_t *)(argp5));
+    }
+  }
+  ecode6 = SWIG_AsVal_unsigned_SS_long(argv[4], &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), Ruby_Format_TypeError( "", "time_t","memcached_increment_with_initial", 6, argv[4] ));
+  }
+  arg6 = (time_t)(val6);
+  result = (memcached_return)memcached_increment_with_initial(arg1,(char const *)arg2,arg3,arg4,arg5,arg6,arg7);
   vresult = SWIG_From_int((int)(result));
-  if (SWIG_IsTmpObj(res5)) {
-    vresult = SWIG_Ruby_AppendOutput(vresult, SWIG_From_unsigned_SS_long_SS_long((*arg5)));
+  if (SWIG_IsTmpObj(res7)) {
+    vresult = SWIG_Ruby_AppendOutput(vresult, SWIG_From_unsigned_SS_long_SS_long((*arg7)));
   } else {
-    int new_flags = SWIG_IsNewObj(res5) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
-    vresult = SWIG_Ruby_AppendOutput(vresult, SWIG_NewPointerObj((void*)(arg5), SWIGTYPE_p_uint64_t, new_flags));
+    int new_flags = SWIG_IsNewObj(res7) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    vresult = SWIG_Ruby_AppendOutput(vresult, SWIG_NewPointerObj((void*)(arg7), SWIGTYPE_p_uint64_t, new_flags));
   }
   return vresult;
 fail:
@@ -7094,20 +7122,26 @@ _wrap_memcached_decrement_with_initial(int argc, VALUE *argv, VALUE self) {
   memcached_st *arg1 = (memcached_st *) 0 ;
   char *arg2 = (char *) 0 ;
   size_t arg3 ;
-  uint32_t arg4 ;
-  uint64_t *arg5 = (uint64_t *) 0 ;
+  uint64_t arg4 ;
+  uint64_t arg5 ;
+  time_t arg6 ;
+  uint64_t *arg7 = (uint64_t *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  unsigned long val4 ;
-  int ecode4 = 0 ;
-  uint64_t temp5 ;
-  int res5 = SWIG_TMPOBJ ;
+  void *argp4 ;
+  int res4 = 0 ;
+  void *argp5 ;
+  int res5 = 0 ;
+  unsigned long val6 ;
+  int ecode6 = 0 ;
+  uint64_t temp7 ;
+  int res7 = SWIG_TMPOBJ ;
   memcached_return result;
   VALUE vresult = Qnil;
 
-  arg5 = &temp5;
-  if ((argc < 3) || (argc > 3)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
+  arg7 = &temp7;
+  if ((argc < 5) || (argc > 5)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 5)",argc); SWIG_fail;
   }
   res1 = SWIG_ConvertPtr(argv[0], &argp1,SWIGTYPE_p_memcached_st, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
@@ -7118,18 +7152,40 @@ _wrap_memcached_decrement_with_initial(int argc, VALUE *argv, VALUE self) {
     arg2 = StringValuePtr(argv[1]);
     arg3 = (size_t) RSTRING_LEN(argv[1]);
   }
-  ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
-  if (!SWIG_IsOK(ecode4)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "uint32_t","memcached_decrement_with_initial", 4, argv[2] ));
+  {
+    res4 = SWIG_ConvertPtr(argv[2], &argp4, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), Ruby_Format_TypeError( "", "uint64_t","memcached_decrement_with_initial", 4, argv[2] ));
+    }
+    if (!argp4) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "uint64_t","memcached_decrement_with_initial", 4, argv[2]));
+    } else {
+      arg4 = *((uint64_t *)(argp4));
+    }
   }
-  arg4 = (uint32_t)(val4);
-  result = (memcached_return)memcached_decrement_with_initial(arg1,(char const *)arg2,arg3,arg4,arg5);
+  {
+    res5 = SWIG_ConvertPtr(argv[3], &argp5, SWIGTYPE_p_uint64_t,  0 );
+    if (!SWIG_IsOK(res5)) {
+      SWIG_exception_fail(SWIG_ArgError(res5), Ruby_Format_TypeError( "", "uint64_t","memcached_decrement_with_initial", 5, argv[3] ));
+    }
+    if (!argp5) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "uint64_t","memcached_decrement_with_initial", 5, argv[3]));
+    } else {
+      arg5 = *((uint64_t *)(argp5));
+    }
+  }
+  ecode6 = SWIG_AsVal_unsigned_SS_long(argv[4], &val6);
+  if (!SWIG_IsOK(ecode6)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode6), Ruby_Format_TypeError( "", "time_t","memcached_decrement_with_initial", 6, argv[4] ));
+  }
+  arg6 = (time_t)(val6);
+  result = (memcached_return)memcached_decrement_with_initial(arg1,(char const *)arg2,arg3,arg4,arg5,arg6,arg7);
   vresult = SWIG_From_int((int)(result));
-  if (SWIG_IsTmpObj(res5)) {
-    vresult = SWIG_Ruby_AppendOutput(vresult, SWIG_From_unsigned_SS_long_SS_long((*arg5)));
+  if (SWIG_IsTmpObj(res7)) {
+    vresult = SWIG_Ruby_AppendOutput(vresult, SWIG_From_unsigned_SS_long_SS_long((*arg7)));
   } else {
-    int new_flags = SWIG_IsNewObj(res5) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
-    vresult = SWIG_Ruby_AppendOutput(vresult, SWIG_NewPointerObj((void*)(arg5), SWIGTYPE_p_uint64_t, new_flags));
+    int new_flags = SWIG_IsNewObj(res7) ? (SWIG_POINTER_OWN |  0 ) :  0 ;
+    vresult = SWIG_Ruby_AppendOutput(vresult, SWIG_NewPointerObj((void*)(arg7), SWIGTYPE_p_uint64_t, new_flags));
   }
   return vresult;
 fail:
