@@ -7023,7 +7023,7 @@ _wrap_memcached_decrement(int argc, VALUE *argv, VALUE self) {
     arg3 = (size_t) RSTRING_LEN(argv[1]);
   }
   ecode4 = SWIG_AsVal_unsigned_SS_long(argv[2], &val4);
-  if (!SWIG_IsOK(ecode4)) {
+  if (!SWIG_IsOK(val4)) {
     SWIG_exception_fail(SWIG_ArgError(ecode4), Ruby_Format_TypeError( "", "uint32_t","memcached_decrement", 4, argv[2] ));
   }
   arg4 = (uint32_t)(val4);
@@ -7084,7 +7084,7 @@ _wrap_memcached_increment_with_initial(int argc, VALUE *argv, VALUE self) {
     if (!argp4) {
       SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "uint64_t","memcached_increment_with_initial", 4, argv[2]));
     } else {
-      arg4 = *((uint64_t *)(argp4));
+      arg4 = (uint64_t)(argp4);
     }
   }
   {
@@ -7095,7 +7095,7 @@ _wrap_memcached_increment_with_initial(int argc, VALUE *argv, VALUE self) {
     if (!argp5) {
       SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "uint64_t","memcached_increment_with_initial", 5, argv[3]));
     } else {
-      arg5 = *((uint64_t *)(argp5));
+      arg5 = (uint64_t)(argp5);
     }
   }
   ecode6 = SWIG_AsVal_unsigned_SS_long(argv[4], &val6);
@@ -7160,7 +7160,7 @@ _wrap_memcached_decrement_with_initial(int argc, VALUE *argv, VALUE self) {
     if (!argp4) {
       SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "uint64_t","memcached_decrement_with_initial", 4, argv[2]));
     } else {
-      arg4 = *((uint64_t *)(argp4));
+      arg4 = (uint64_t)(argp4);
     }
   }
   {
@@ -7171,7 +7171,7 @@ _wrap_memcached_decrement_with_initial(int argc, VALUE *argv, VALUE self) {
     if (!argp5) {
       SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "uint64_t","memcached_decrement_with_initial", 5, argv[3]));
     } else {
-      arg5 = *((uint64_t *)(argp5));
+      arg5 = (uint64_t)(argp5);
     }
   }
   ecode6 = SWIG_AsVal_unsigned_SS_long(argv[4], &val6);
