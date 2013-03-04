@@ -647,6 +647,54 @@ class MemcachedTest < Test::Unit::TestCase
     end
   end
 
+  def test_increment_with_initial_non_binary
+    assert_raise(Memcached::ProtocolError) do
+      @cache.increment_with_initial(key)
+    end
+  end
+
+  def test_increment_with_initial
+    assert_equal 5, @binary_protocol_cache.increment_with_initial(key, 1, 5)
+    assert_equal 6, @binary_protocol_cache.increment_with_initial(key, 1, 5)
+  end
+
+  def test_increment_with_initial_offset
+    assert_equal 5, @binary_protocol_cache.increment_with_initial(key, 2, 5)
+    assert_equal 7, @binary_protocol_cache.increment_with_initial(key, 2, 5)
+  end
+
+  def test_increment_with_initial_ttl
+    assert_equal 5, @binary_protocol_cache.increment_with_initial(key, 2, 5, 1)
+    sleep(2)
+    assert_raise(Memcached::NotFound) do
+      @cache.get key, false
+    end
+  end
+
+  def test_decrement_with_initial_non_binary
+    assert_raise(Memcached::ProtocolError) do
+      @cache.decrement_with_initial(key)
+    end
+  end
+
+  def test_decrement_with_initial
+    assert_equal 5, @binary_protocol_cache.decrement_with_initial(key, 1, 5)
+    assert_equal 4, @binary_protocol_cache.decrement_with_initial(key, 1, 5)
+  end
+
+  def test_decrement_with_initial_offset
+    assert_equal 5, @binary_protocol_cache.decrement_with_initial(key, 2, 5)
+    assert_equal 3, @binary_protocol_cache.decrement_with_initial(key, 2, 5)
+  end
+
+  def test_decrement_with_initial_ttl
+    assert_equal 5, @binary_protocol_cache.decrement_with_initial(key, 2, 5, 1)
+    sleep(2)
+    assert_raise(Memcached::NotFound) do
+      @cache.get key, false
+    end
+  end
+
   # Exist
 
   def test_missing_exist

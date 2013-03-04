@@ -364,6 +364,34 @@ Please note that when <tt>:no_block => true</tt>, update methods do not raise on
   alias :decr :decrement
   #:startdoc:
 
+  # Increment a key's value. Requires the <tt>:binary_protocol</tt> to be turned on. Accepts a String <tt>key</tt>. If the key does not exist, it will be set to <tt>initial</tt>.
+  #
+  # Accepts an optional <tt>offset</tt> paramater, which defaults to 1. <tt>offset</tt> must be an integer.
+  # Accepts an optional <tt>initial</tt> parameter, which defaults to 1. <tt>initial</tt> must be an integer.
+  # Accepts an options <tt>ttl</tt> paramter, but be an integer.
+  def increment_with_initial(key, offset=1, initial=1, ttl=@default_ttl)
+    ret, value = Lib.memcached_increment_with_initial(@struct, key, offset, initial, ttl)
+    check_return_code(ret, key)
+    value
+  rescue => e
+    tries ||= 0
+    raise unless tries < options[:exception_retry_limit] && should_retry(e)
+    tries += 1
+    retry
+  end
+
+  # Decrement a key's value. The parameters and exception behavior are the same as <tt>decrement_with_initial</tt>.
+  def decrement_with_initial(key, offset=1, initial=1, ttl=@default_ttl)
+    ret, value = Lib.memcached_decrement_with_initial(@struct, key, offset, initial, ttl)
+    check_return_code(ret, key)
+    value
+  rescue => e
+    tries ||= 0
+    raise unless tries < options[:exception_retry_limit] && should_retry(e)
+    tries += 1
+    retry
+  end
+
   # Replace a key/value pair. Raises <b>Memcached::NotFound</b> if the key does not exist on the server. The parameters are the same as <tt>set</tt>.
   def replace(key, value, ttl=@default_ttl, marshal=true, flags=FLAGS)
     value = marshal ? Marshal.dump(value) : value
